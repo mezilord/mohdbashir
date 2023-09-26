@@ -39,22 +39,25 @@ const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={`${styles.sectionSubText} text-center`}>Introduction</p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Overview.</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-secondary mx-auto text-justify text-[17px] max-w-3xl leading-[30px]"
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab earum
+        aliquid labore illo eaque officiis! Necessitatibus labore officiis
+        nesciunt ducimus ratione assumenda suscipit dolorum explicabo laudantium
+        laboriosam. Minima mollitia delectus quae sequi quos ab necessitatibus
+        adipisci. Tempora, quam soluta adipisci quaerat pariatur vero rem
+        quidem. Ex numquam repudiandae eligendi voluptatum necessitatibus
+        distinctio maxime illum esse, sed eum molestiae dolore, minima qui
+        debitis animi quasi quod voluptates ad, est
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+      <div className="mt-20 flex flex-wrap gap-7">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
