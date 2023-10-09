@@ -21,7 +21,7 @@ export const fetchResponse = async (chat) => {
   const model = new ChatOpenAI({
     temperature: 0,
     maxTokens: 300, 
-    openAIApiKey: `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`,
+    openAIApiKey: `${process.env.REACT_APP_OPENAI_API_KEY}`,
     modelName: "gpt-3.5-turbo-16k",
   });
   const TEMPLATE = `
