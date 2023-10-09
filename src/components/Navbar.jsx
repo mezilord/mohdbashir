@@ -69,6 +69,12 @@ const Navbar = () => {
         </Link>
 
         <ul className="list-none hidden sm:flex flex-row gap-10">
+        <Link
+          to="/contentGenerator"
+          className="flex items-center gap-2"
+        >
+          AI Content Tool
+        </Link>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
