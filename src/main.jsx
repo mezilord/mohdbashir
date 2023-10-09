@@ -4,18 +4,13 @@ import App from "./App";
 import "./index.css";
 import Chatbot from "./chatbot/bot";
 import { QueryClient, QueryClientProvider } from "react-query";
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-const root = document.getElementById("root");
-const reactRoot = ReactDOM.createRoot(root);
-reactRoot.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <>
     <QueryClientProvider client={queryClient}>
-        <Chatbot />
-      </QueryClientProvider>
-
-      <App />
-    </>
+      <Chatbot />
+    </QueryClientProvider>
+    <App />
   </React.StrictMode>
 );
