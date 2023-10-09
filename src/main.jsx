@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import Chatbot from "./chatbot/chatbot";
+import chatbot from "./chatbot/chatbot";
 import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient()
 
@@ -12,7 +12,7 @@ reactRoot.render(
   <React.StrictMode>
     <>
     <QueryClientProvider client={queryClient}>
-        <Chatbot />
+        <chatbot />
       </QueryClientProvider>
 
       <App />

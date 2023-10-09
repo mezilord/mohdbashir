@@ -4,7 +4,7 @@ import ChatInput from "./ChatInput";
 import { useMutation } from "react-query";
 import { fetchResponse } from "./api";
 
-function Chatbot() {
+const chatbot = () => {
   const [chat, setChat] = useState([]);
   const [show, setShow] = useState(false);
   const mutation = useMutation({
@@ -64,6 +64,6 @@ function Chatbot() {
       )}
     </>
   );
-}
+};
 
-export default Chatbot;
+export default chatbot;
