@@ -15,7 +15,7 @@ const ChatInput = ({ sendMessage, loading }) => {
     py-4 overflow-auto relative"
     >
       {loading ? (
-        <img src="../../public/loader.gif" className="w-8 m-auto" />
+        <img src="../images/loader.gif" className="w-8 m-auto" />
       ) : (
         <>
           <input
@@ -30,7 +30,7 @@ const ChatInput = ({ sendMessage, loading }) => {
 
           <img
             onClick={handleSubmit}
-            src="../../public/send.png"
+            src="../images/send.png"
             width={20}
             alt="send-button"
             className="absolute top-4 right-3 hover:cursor-pointer ease-in duration-100 hover:scale-125"

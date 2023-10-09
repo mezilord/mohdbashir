@@ -59,7 +59,7 @@ const chatbot = () => {
           onClick={() => setShow(true)}
           className="z-10 fixed right-10 bottom-10 w-16 h-16 p-2 bg-slate-900 rounded-full flex justify-center items-center cursor-pointer transform translate-y-0 transition-transform duration-1000 ease-in-out hover:translate-y-[-5px]"
         >
-          <img src="../../public/chatbot.png" alt="chatbot" />
+          <img src="../images/chatbot.png" alt="chatbot" />
         </div>
       )}
     </>
