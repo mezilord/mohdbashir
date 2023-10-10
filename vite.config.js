@@ -6,5 +6,5 @@ dotenv.config();
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  envPrefix: 'VITE_',
+  envPrefix: 'REACT_',
 })
