@@ -36,6 +36,7 @@ const ContentGenerator = () => {
             contentStyle,
             keywords,
           }),
+          mode: "no-cors",
         }
       );
       const data = await response.json();
