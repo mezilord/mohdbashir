@@ -26,7 +26,7 @@ const ContentGenerator = () => {
       const model = new ChatOpenAI({
         temperature: creativityLevel / 10, // creativityLevel is a number between 1 and 10
         maxTokens: 500,
-        openAIApiKey: `${process.env.REACT_OPENAI_API_KEY || import.meta.env.VITE_OPENAI_KEY}`,
+        openAIApiKey: `${process.env.VITE_VERCEL_ENV}`,
         modelName: "gpt-3.5-turbo-16k",
       });
 
