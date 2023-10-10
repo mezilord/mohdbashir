@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { PromptTemplate } from "langchain/prompts";
-import dotenv from 'dotenv';
-dotenv.config();
+
 const ContentGenerator = () => {
   const [topic, setTopic] = useState("");
   const [keywords, setKeywords] = useState("");
