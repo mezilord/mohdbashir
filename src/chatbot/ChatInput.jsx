@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
+import loader from './images/loader.gif'
 const ChatInput = ({ sendMessage, loading }) => {
   const [value, setValue] = useState("");
 
@@ -15,7 +15,7 @@ const ChatInput = ({ sendMessage, loading }) => {
     py-4 overflow-auto relative"
     >
       {loading ? (
-        <img src="https://ibb.co/G7f2ygX" className="w-8 m-auto" />
+        <img src={loader} className="w-8 m-auto" />
       ) : (
         <>
           <input
@@ -30,7 +30,7 @@ const ChatInput = ({ sendMessage, loading }) => {
 
           <img
             onClick={handleSubmit}
-            src="https://ibb.co/mcj4xD0"
+            src="https://img.icons8.com/office/16/sent.png"
             width={20}
             alt="send-button"
             className="absolute top-4 right-3 hover:cursor-pointer ease-in duration-100 hover:scale-125"
