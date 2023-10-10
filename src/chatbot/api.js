@@ -8,6 +8,7 @@ export const fetchResponse = async (chat) => {
       body: JSON.stringify({
         message: chat.map((message) => message.message).join(" \n "),
       }),
+      mode: "no-cors",
     });
     const data = await response.json();
     return data;
