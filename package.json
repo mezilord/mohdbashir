@@ -13,6 +13,7 @@
     "@formkit/auto-animate": "^0.8.0",
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.1",
+    "dotenv": "^16.3.1",
     "formkit": "^1.2.2",
     "framer-motion": "^9.0.7",
     "langchain": "^0.0.163",

@@ -1,27 +1,10 @@
-// export const fetchResponse = async (chat) => {
-//   try {
-//     const response = await fetch("https://server-chatbot-ten.vercel.app", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         message: chat.map((message) => message.message).join(" \n "),
-//       }),
-//     });
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { PromptTemplate } from "langchain/prompts";
 export const fetchResponse = async (chat) => {
   const model = new ChatOpenAI({
     temperature: 0,
     maxTokens: 300, 
-    openAIApiKey: `${import.meta.env.VITE_OPENAI_API_KEY}`,
+    openAIApiKey: `${process.env.REACT_OPENAI_API_KEY || import.meta.env.VITE_OPENAI_KEY}`,
     modelName: "gpt-3.5-turbo-16k",
   });
   const TEMPLATE = `
@@ -750,26 +733,42 @@ export const fetchResponse = async (chat) => {
  In this age of digital freedom and extensive access to worldwide information, the emphasis on security is one of the defining factors of a business’s integrity and reputation. With Duo, your business will receive an unbreachable layer of security that will ensure safe communications across all networks.
  `;
 
-  const promptTemplate = PromptTemplate.fromTemplate(
-    "You're a helpful, polite and professional chatbot for a software company named Infinigence, which provides \
-    services and all details are below about the company and services we provide. \
-    Based on the {chat_history} you will give one message answer to the user's query. The questions users ask you, you can answer according to information given in {data}. You can ignore \
-    irrelevant questions. If someone wants to book a meeting then give them this link, give them \
-    this link where they can book a meeting with me: http://calendly.com/whateverismyid.\
-    Current conversation:\
-    {chat_history}"
-  );
-  // You should let users know that if they\
-  //     have a project in mind they can let us know the requirements and we'll get back to them, ask\
-  //     them to make sure they give some kind of contact details so we can get back to them. \
-
-  const chain = promptTemplate.pipe(model);
-
-  const result = await chain.invoke({
-    data: TEMPLATE,
+ const promptTemplate = PromptTemplate.fromTemplate(
+   "You're a helpful, polite and professional chatbot for a software company named Infinigence, which provides \
+   services and all details are below about the company and services we provide. \
+   Based on the {chat_history} you will give one message answer to the user's query. The questions users ask you, you can answer according to information given in {data}. You can ignore \
+   irrelevant questions. If someone wants to book a meeting then give them this link, give them \
+   this link where they can book a meeting with me: http://calendly.com/whateverismyid.\
+   Current conversation:\
+   {chat_history}"
+   );
+   // You should let users know that if they\
+   //     have a project in mind they can let us know the requirements and we'll get back to them, ask\
+   //     them to make sure they give some kind of contact details so we can get back to them. \
+   
+   const chain = promptTemplate.pipe(model);
+   
+   const result = await chain.invoke({
+     data: TEMPLATE,
     chat_history: chat.map((message) => message.message).join(" \n "),
   });
-
-  console.log(result.content);
   return result.content;
 };
+
+// export const fetchResponse = async (chat) => {
+//   try {
+//     const response = await fetch("https://server-chatbot-ten.vercel.app", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         message: chat.map((message) => message.message).join(" \n "),
+//       }),
+//     });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
