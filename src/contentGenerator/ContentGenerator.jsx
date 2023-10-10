@@ -22,29 +22,25 @@ const ContentGenerator = () => {
     };
   }, []);
 
-  async function fetchResponse() {
+    async function fetchResponse() {
     try {
-      const model = new ChatOpenAI({
-        temperature: creativityLevel / 10, // creativityLevel is a number between 1 and 10
-        maxTokens: 500,
-        openAIApiKey: `${process.env.VITE_VERCEL_ENV}`,
-        modelName: "gpt-3.5-turbo-16k",
-      });
-
-      const promptTemplate = PromptTemplate.fromTemplate(
-        "Generate a social media post about the topic {Topic} the content must not exceed 200 words. \
-        using these and other good keywords: \
-        {Keywords}. Content should be {ContentStyle}. You need to return a json with two properties \
-         A template example for answer is:  {example}"
+      const response = await fetch(
+        "https://server-chatbot-ten.vercel.app/content",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title,
+            creativityLevel,
+            contentStyle,
+            keywords,
+          }),
+        }
       );
-      const chain = promptTemplate.pipe(model);
-      const result = await chain.invoke({
-        Topic: topic,
-        ContentStyle: contentStyle,
-        Keywords: keywords,
-        example: `{"heading": <heading>, "content": <content> }`,
-      });
-      return JSON.parse(result.content);
+      const data = await response.json();
+      return data;
     } catch (error) {
       console.log(error);
     }
