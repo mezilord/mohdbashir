@@ -31,7 +31,7 @@ const ContentGenerator = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            title,
+            topic,
             creativityLevel,
             contentStyle,
             keywords,
